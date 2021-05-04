@@ -1,22 +1,23 @@
 import { CLEAR_CART, DECREASE, REMOVE, INCREASE, GET_TOTAL } from "./actions";
 
-const reducer = (state, action) => {
+import cartItems from "./assets/data";
+
+const initialState = {
+  cart: cartItems,
+  total: 0,
+  amount: 0,
+};
+
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case DECREASE: {
-      console.log("Decreased");
-      let updatedCart = [];
-      if (action.payload.amount === 1) {
-        updatedCart = state.cart.filter(
-          (item) => item.id !== action.payload.id
-        );
-      } else {
-        updatedCart = state.cart.map((item) => {
-          if (item.id === action.payload.id) {
-            item = { ...item, amount: item.amount - 1 };
-          }
-          return item;
-        });
-      }
+      const updatedCart = state.cart.map((item) => {
+        if (item.id === action.payload.id) {
+          item = { ...item, amount: item.amount - 1 };
+        }
+        return item;
+      });
+
       return {
         ...state,
         cart: updatedCart,
