@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
-import { CLEAR_CART, GET_TOTAL } from "../actions";
+import { CLEAR_CART, GET_TOTAL } from "../redux/actions";
 
 const CartContainer = () => {
   // Reference: https://thoughtbot.com/blog/using-redux-with-react-hooks

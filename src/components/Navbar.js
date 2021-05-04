@@ -1,6 +1,7 @@
 import React from "react";
-import { connect } from "react-redux";
-const Navbar = ({ amount }) => {
+import { useSelector } from "react-redux";
+const Navbar = () => {
+  const amount = useSelector((state) => state.amount);
   return (
     <nav>
       <div className="nav-center">
@@ -18,7 +19,4 @@ const Navbar = ({ amount }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return { amount: state.amount };
-};
-export default connect(mapStateToProps)(Navbar);
+export default Navbar;

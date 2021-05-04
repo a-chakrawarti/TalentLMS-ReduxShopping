@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeItem, decreaseItem, increaseItem } from "../actions";
+import { removeItem, decreaseItem, increaseItem } from "../redux/actions";
 
 const cartItem = ({
   img,

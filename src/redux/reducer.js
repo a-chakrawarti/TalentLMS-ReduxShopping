@@ -1,6 +1,6 @@
 import { CLEAR_CART, DECREASE, REMOVE, INCREASE, GET_TOTAL } from "./actions";
 
-import cartItems from "./assets/data";
+import cartItems from "../assets/data";
 
 const initialState = {
   cart: cartItems,
