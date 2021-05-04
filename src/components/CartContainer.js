@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 import CartItem from "./CartItem";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CLEAR_CART, GET_TOTAL } from "../actions";
 
-const CartContainer = ({ cart = [], total, dispatch }) => {
+const CartContainer = () => {
+  // Reference: https://thoughtbot.com/blog/using-redux-with-react-hooks
+  const cart = useSelector((state) => state.cart);
+  const total = useSelector((state) => state.total);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch({
       type: GET_TOTAL,
@@ -52,11 +57,4 @@ const CartContainer = ({ cart = [], total, dispatch }) => {
   );
 };
 
-const mapStateToProps = (store) => {
-  return {
-    cart: store.cart,
-    total: store.total,
-  };
-};
-
-export default connect(mapStateToProps)(CartContainer);
+export default CartContainer;
